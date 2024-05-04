@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --primary-color: #F2EAE1;
+    --secondary-color: #FEAF00;
+    --tertiary-color: #F8D442;
+    --white-color: #fff;
+    --text-color: #000000;
+    --text-secondary-color: #C4C4C4;
+    --text-tertiary-color: #ACACAC;
+    --font-montserrat: "Montserrat", sans-serif;
+}
+
+body {
+    font-family: var(--font-montserrat);
+    user-select: none;
+}
+
+/* ASIDE */
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    max-width: 16rem;
+    padding: 2.5rem;
+    padding-top: 1.5rem;
+
+}
+
+aside .logo {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.14rem;
+}
+
+aside .logo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    display: block;
+    width: 0.25rem;
+    height: 120%;
+    background-color: var(--tertiary-color);
+    transform: translateY(-50%);
+}
+
+aside .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+aside .profile img {
+    clip-path: circle(); 
+    object-fit: cover; 
+    width: 10rem;  
+    height: 10rem;
+}
+
+aside .profile .container-img {
+    position: relative;
+    cursor: pointer;
+}
+
+aside .profile .container-img::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;  
+    height: 110%;  
+    transform: translate(-50%, -50%) scale(80%);
+    border-radius: 50%;
+    border: 0.09375rem solid var(--secondary-color);
+    border-left: none;
+    border-right: none;
+    transition: all .35s ease-in;
+}
+
+aside .profile .container-img::after {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;  
+    height: 120%;  
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    border-top: none;
+    border-bottom: none;
+    transition: all .41s ease-in;
+}
+
+aside .profile .container-img:hover::before { 
+    transform: translate(-50%, -50%) rotate(-360deg) scale(100%);
+}
+
+aside .profile .container-img:hover::after { 
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(720deg) scale(113%);
+}
+
+aside .profile h3 {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.14rem;
+    margin: 1.4rem 0 0.7rem 0;
+}
+
+aside .profile p strong {
+    font-weight: 500;
+    color: var(--secondary-color);    
+    font-size: 1.05rem;
+}
+
+aside nav {
+    width: 100%;
+}
+
+aside .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;      
+    gap: 0.6rem;  
+}
+
+aside .navbar .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 2.55rem;
+    border-radius: 0.3rem;
+    font-size: 1.05rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all .3s ease-in;
+}
+
+aside .navbar .nav-link:hover, aside .navbar .nav-link.active {
+    background-color: var(--secondary-color);
+}
+
+aside .navbar .nav-link:hover::after {    
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 0.1rem;  
+    height: 100%;  
+    transform: translateY(-50%);
+    border-radius: 0.8rem;
+    background-color: var(--text-color);
+}
+
+aside .navbar .nav-link i {
+    font-size: 1.35rem;
+}
+
+aside button.logout {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    color: #6a6a6a;
+    font-weight: 500;
+    border: none;    
+    transition: all .3s;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+aside button.logout:hover {  
+    transform: scale();
+    color: var(--text-color);
+}
+
+aside button.logout i {
+    font-size: 1.35rem;
+}
+
+/* HEADER */
+
+.container {
+    margin-left: 20.84rem;
+}
+
+header {
+    height: 3.75rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 1.6rem;
+    margin-bottom: 0.5rem;
+}
+
+header button {
+    color: var(--text-secondary-color);
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;    
+    transition: all .3s;
+}
+
+header button.caret-left {
+    margin-right: auto;    
+    font-size: 1rem;
+    height: 1.375rem;
+    width: 1.375rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.15rem solid var(--text-secondary-color);
+}
+
+header button.bell {
+    margin: 0 1.3rem;
+}
+
+header button:hover {
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+header .form-search {
+    position: relative;
+}
+
+header .form-search input {
+    border: 0.05rem solid var(--text-secondary-color);
+    color: var(--text-secondary-color);
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    letter-spacing: 0.0625rem;
+    font-family: var(--font-montserrat);
+    outline: none;
+    transition: all .3s;
+}
+
+header .form-search input:focus {
+    box-shadow: #00000025 0 0 8px;
+}
+
+header .form-search button {
+    position: absolute;
+    top: 50%;
+    right: 0.6rem;
+    transform: translateY(-50%);
+    background-color: var(--white-color);
+    padding: 0;
+    padding-left: 0.8rem;
+}
+
+/* MAIN */
+
+main {
+    background-color: #F8F8F8;    
+    padding: 0 1.6rem;
+    height: calc(100vh - 4.25rem);
+    border-top: 0.0625rem #f2eae1a5 solid;
+}
+
+main .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding: 0.8rem 0;
+    gap: 1rem;
+}
+
+main h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+main button {
+    color: var(--secondary-color);    
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    border: none;
+    cursor: pointer;    
+    transition: all .3s;
+}
+
+main button .bi-arrows-expand {
+    height: 2rem;
+    width: 2rem;    
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    transition: all .2s ease-in;
+}
+
+main button.add-new-libre {
+    font-weight: 500;
+    color: var(--white-color);
+    text-transform: uppercase;
+    background-color: var(--secondary-color);
+    letter-spacing: 0.0625rem;
+    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;    
+}
+
+main button.add-new-libre:hover {
+    color: var(--text-color);    
+}
+
+main button .bi-arrows-expand:hover {
+    color: var(--white-color);     
+    background-color: var(--secondary-color);
+}
+
+main hr {
+    border-color: #c4c4c430;
+    margin-top: 0;
+}
+
+main table {
+    width: 100%;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 0 1.25rem;
+}
+
+main table th, main table td {
+    padding: 0.8rem;    
+    vertical-align: middle;    
+}
+
+main table th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-tertiary-color);
+}
+
+main table td {
+    margin-bottom: 2rem;
+    font-weight: normal;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    background-color: #d0d0d021;
+}
+
+main table tbody tr {
+    position: relative;
+    z-index: 0;
+
+}
+
+main table tbody tr::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    border-radius: 1rem;
+    background-color: transparent; 
+    box-shadow: 0 0 2px 0.5px #00000022;
+}
+
+main table td:first-child {
+    border-radius: 1rem 0 0 1rem;
+}
+
+main table td:last-child {
+    border-radius: 0 1rem 1rem 0 ;
+}
+
+main table td img {
+    width: 4.0625rem;
+    object-fit: cover;  
+    height: 3.4375rem;
+    border-radius: 0.5rem;
+}
+
+main table .group-buttons {
+    text-align: right;
+}
+
+main table .group-buttons button {
+    cursor: pointer; 
+    margin-left: 0.5rem;
+    color: var(--secondary-color);
+    background-color: transparent;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    border: none;    
+    height: 2.2rem;
+    width: 2.2rem;    
+    border-radius: 50%;
+}
+
+main table .group-buttons button:hover {
+    color: var(--white-color);     
+    background-color: var(--secondary-color);
+    box-shadow: 0 0 1px #00000032;
+}
