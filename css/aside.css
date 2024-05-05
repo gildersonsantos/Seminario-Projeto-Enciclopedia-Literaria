@@ -1,0 +1,182 @@
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    max-width: 16rem;
+    width: 16rem;
+    padding: 2.5rem;
+    padding-top: 1.5rem;
+}
+
+aside .logo {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.14rem;
+}
+
+aside .logo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -1rem;
+    display: block;
+    width: 0.25rem;
+    height: 120%;
+    background-color: var(--tertiary-color);
+    transform: translateY(-50%);
+}
+
+aside .profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+aside .profile img {
+    clip-path: circle(); 
+    object-fit: cover; 
+    width: 10rem;  
+    height: 10rem;
+}
+
+aside .profile .container-img {
+    position: relative;
+    cursor: pointer;
+}
+
+aside .profile .container-img::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110%;  
+    height: 110%;  
+    transform: translate(-50%, -50%) scale(80%);
+    border-radius: 50%;
+    border: 0.09375rem solid var(--secondary-color);
+    border-left: none;
+    border-right: none;
+    transition: all .35s ease-in;
+}
+
+aside .profile .container-img::after {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;  
+    height: 120%;  
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    border-top: none;
+    border-bottom: none;
+    transition: all .41s ease-in;
+}
+
+aside .profile .container-img:hover::before { 
+    transform: translate(-50%, -50%) rotate(-360deg) scale(100%);
+}
+
+aside .profile .container-img:hover::after { 
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(720deg) scale(113%);
+}
+
+aside .profile h3 {
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 1.14rem;
+    margin: 1.4rem 0 0.7rem 0;
+}
+
+aside .profile p strong {
+    font-weight: 500;
+    color: var(--secondary-color);    
+    font-size: 1.05rem;
+}
+
+aside nav {
+    width: 100%;
+}
+
+aside .navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;      
+    gap: 0.6rem;  
+}
+
+aside .navbar .nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 2.55rem;
+    border-radius: 0.3rem;
+    font-size: 1.05rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: all .3s ease-in;
+}
+
+aside .navbar .nav-link.disabled {
+    cursor: not-allowed;
+    background-color: var(--text-secondary-color);
+    opacity: 0.8;
+}
+
+aside .navbar .nav-link:not(.disabled):hover, aside .navbar .nav-link.active {
+    background-color: var(--secondary-color);
+}
+
+aside .navbar .nav-link:not(.disabled):hover::after {    
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 0.1rem;  
+    height: 100%;  
+    transform: translateY(-50%);
+    border-radius: 0.8rem;
+    background-color: var(--text-color);
+}
+
+aside .navbar .nav-link i {
+    font-size: 1.35rem;
+}
+
+aside button.logout {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+    color: #6a6a6a;
+    font-weight: 500;
+    border: none;    
+    transition: all .3s;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+}
+
+aside button.logout:hover {  
+    transform: scale();
+    color: var(--text-color);
+}
+
+aside button.logout i {
+    font-size: 1.35rem;
+}
