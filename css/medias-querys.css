@@ -55,7 +55,7 @@
         display: block;
     }
 
-    main .group-buttons {
+    main article .group-buttons {
         position: absolute;
         top: 0;
         right: 0;
