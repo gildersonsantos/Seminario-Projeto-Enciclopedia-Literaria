@@ -21,12 +21,12 @@ header button {
     font-weight: bold;
     font-size: 1.2rem;
     border: none;
-    cursor: pointer;    
+    cursor: pointer;
     transition: all .3s;
 }
 
 header button.caret-left {
-    margin-right: auto;    
+    margin-right: auto;
     font-size: 1rem;
     height: 1.375rem;
     width: 1.375rem;
@@ -63,7 +63,7 @@ header .form-search input {
     font-family: var(--font-montserrat);
     outline: none;
     transition: all .3s;
-    width: 100%;
+    width: 22rem;
 }
 
 header .form-search input:focus {
