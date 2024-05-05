@@ -1,0 +1,82 @@
+main {
+    background-color: #F8F8F8;    
+    padding: 0 1.6rem;
+    border-top: 0.0625rem #f2eae1a5 solid;
+    height: calc(100vh - 4.25rem);
+}
+
+/* main hr {
+    border-color: #c4c4c430;
+    margin-top: 0;
+}
+main h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 1.7rem 0 1.7rem auto;
+} */
+
+
+
+main form .group-inputs, main form .descricao {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: #00000025 0 0 8px;
+    padding: 1.4rem;
+    margin: 1.7rem 0;
+}
+
+main form .group-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 1.4rem;
+}
+
+main form div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+main form label {
+    font-weight: 500;
+}
+
+main form input, main form textarea {
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem var(--text-color) solid;
+}
+
+main form input:focus, main form textarea:focus {
+    outline: none;
+}
+
+main form .descricao {
+    margin: 1.7rem 0;
+}
+
+main form textarea {
+    resize: vertical;
+}
+
+main form button {
+    display: block;
+    font-weight: 700;
+    color: var(--text-color);
+    text-transform: uppercase;
+    background-color: var(--white-color);
+    letter-spacing: 0.2rem;
+    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;   
+    border-color: var(--secondary-color); 
+    cursor: pointer;
+    transition: all .3s;
+    margin: 0.5em 0;
+    margin-left: auto;
+}
+
+main form button:hover {
+    background-color: var(--tertiary-color); 
+}

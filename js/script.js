@@ -11,12 +11,7 @@ btnMenu.addEventListener("click", () => {
     }
 })
 
-const btnView = document.querySelector("main button.view");
-btnView.addEventListener("click", () => {
-    window.location.href = "../pages/visualiza-livro.html";
-})
-
 const btnCaretLeft = document.querySelector("header button.caret-left");
 btnCaretLeft.addEventListener("click", () => {
-    window.history.back()
+    window.history.back();
 })
