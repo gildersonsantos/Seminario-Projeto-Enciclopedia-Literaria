@@ -29,9 +29,9 @@ aside {
     align-items: center;
     background-color: var(--primary-color);
     max-width: 16rem;
+    width: 16rem;
     padding: 2.5rem;
     padding-top: 1.5rem;
-
 }
 
 aside .logo {
@@ -198,7 +198,7 @@ aside button.logout i {
 /* HEADER */
 
 .container {
-    margin-left: 20.84rem;
+    margin-left: 21rem;
 }
 
 header {
@@ -208,6 +208,10 @@ header {
     align-items: center;
     padding: 0 1.6rem;
     margin-bottom: 0.5rem;
+}
+
+header h2.logo {
+    display: none;
 }
 
 header button {
@@ -232,8 +236,12 @@ header button.caret-left {
     border: 0.15rem solid var(--text-secondary-color);
 }
 
+header button.list {
+    display: none;
+}
+
 header button.bell {
-    margin: 0 1.3rem;
+    margin: 0 1.2rem;
 }
 
 header button:hover {
@@ -254,6 +262,7 @@ header .form-search input {
     font-family: var(--font-montserrat);
     outline: none;
     transition: all .3s;
+    width: 100%;
 }
 
 header .form-search input:focus {
@@ -279,7 +288,7 @@ main {
     border-top: 0.0625rem #f2eae1a5 solid;
 }
 
-main .container {
+main .container-main {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -346,9 +355,15 @@ main table {
     border-spacing: 0 1.25rem;
 }
 
+main .container-table {
+    max-width: calc(100vw - 21rem);
+    overflow: auto;
+}
+
 main table th, main table td {
     padding: 0.8rem;    
     vertical-align: middle;    
+    white-space: nowrap;
 }
 
 main table th {
@@ -420,4 +435,165 @@ main table .group-buttons button:hover {
     color: var(--white-color);     
     background-color: var(--secondary-color);
     box-shadow: 0 0 1px #00000032;
+}
+
+@media only screen and (max-width: 1023px) {
+    aside {
+        max-width: 3.43rem;
+        width: 3.43rem;
+        padding: 1.7rem;
+    }
+    
+    aside .profile .container-img {
+        margin-top: 3.75rem;
+    }
+
+    aside .profile img {
+        width: 3.43rem;  
+        height: 3.43rem;
+    }
+
+    aside .profile figcaption {
+        display: none;
+    }
+
+    aside .logo, aside button.logout span, aside .navbar .nav-link span {
+        display: none;
+    }
+    
+    aside .navbar .nav-link {
+        padding: 0.8rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        margin-left: 6.83rem;
+    }
+
+    main .container-table {
+        max-width: calc(100vw - 6.83rem);
+        overflow: auto;
+    }
+
+    main table th {
+        padding: 0.4rem 0.8rem;    
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    aside {
+        display: none;
+    }
+
+    .container {
+        margin-left: 0;
+    }
+    
+    main .container-table {
+        max-width: 100vw;
+        overflow: auto;
+    }
+
+    header button.list {
+        display: inline-block;
+        margin-left: 1.2rem;
+    }
+    /* BUTTON DO HAMBURGUER */
+}
+
+@media only screen and (max-width: 550px) {
+    header {
+        flex-direction: column-reverse;
+        margin: 1.6rem 0 2.2rem 0;
+        gap: 1.08rem;
+    }
+
+    header .container-header-mobile {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.1rem;
+        width: 100%;
+    }
+
+    header h2.logo {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--text-color);
+        font-size: 1.08rem;
+        letter-spacing: -1.2px;
+        margin-right: auto;
+    }
+    
+    header button {
+        font-size: 1.5rem;
+    }
+    
+    header button.bell {
+        margin: 0;
+    }
+
+    header button.caret-left {
+        display: none;
+    }
+
+    header .form-search {
+        width: 100%;
+    }
+
+    header .form-search input {
+        padding: 0.8rem;
+    }
+
+    main h2 {
+        display: none;
+    }
+
+    main .container-main {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    main button .bi-arrows-expand {
+        margin-left: 1rem;
+    }
+
+    main button.add-new-libre {
+        font-weight: 500;
+        color: var(--white-color);
+        text-transform: uppercase;
+        background-color: var(--secondary-color);
+        letter-spacing: 0.0625rem;
+        font-size: 0.7rem;
+        padding: 0.9rem 2rem;
+        border-radius: 0.4rem;    
+    }
+
+    main hr {
+        margin-bottom: 0;
+    }
+
+    main table th {
+        padding: 0 0.8rem;    
+    }
+
+    main table th:nth-child(n+3):nth-child(-n+5), main table td:nth-child(n+3):nth-child(-n+5) {
+        display: none;    
+    }
+
+    main table td {
+        font-size: 0.8rem;
+    }
+    
+    main table td img {
+        width: 3.6rem;
+        height: 3.06rem;
+    } 
+
+    main table .group-buttons button {
+        font-size: 1.2rem;
+    } 
 }
