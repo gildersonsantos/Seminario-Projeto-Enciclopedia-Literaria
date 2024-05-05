@@ -484,7 +484,7 @@ main table .group-buttons button:hover {
 
 @media only screen and (max-width: 660px) {
     aside {
-        display: none;
+        display: none; 
     }
 
     .container {
@@ -500,7 +500,44 @@ main table .group-buttons button:hover {
         display: inline-block;
         margin-left: 1.2rem;
     }
-    /* BUTTON DO HAMBURGUER */
+
+    aside.active {
+        display: flex;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        animation: surgirAside 0.3s ease-in-out forwards;
+    }
+
+    aside.reverse {
+        display: flex;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        animation: surgirAsideReverse 0.3s ease-in-out forwards;
+    }
+    
+    @keyframes surgirAside {
+        0% {
+            transform: translateX(-6.83rem);
+        }
+        100% {
+            transform: translateX(0);
+        }
+    }
+    
+    
+    @keyframes surgirAsideReverse {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-6.83rem);
+        }
+    }
+    
 }
 
 @media only screen and (max-width: 550px) {
