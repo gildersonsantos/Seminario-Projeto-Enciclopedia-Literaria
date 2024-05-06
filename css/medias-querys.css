@@ -62,9 +62,6 @@
     main img {
         width: calc(100% - 4rem);
     }
-    main {
-        margin-bottom: 5rem;
-    }
     main .libre {
         display: block;
     }

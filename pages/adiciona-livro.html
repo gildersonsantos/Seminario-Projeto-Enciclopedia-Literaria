@@ -30,14 +30,8 @@
             </div>
         </header>
         <main>
-            <!-- <h2>Adicionar Livro</h2>
-            <hr> -->
-            <form action="#" method="post">
+            <form action="/upload" method="post" enctype="multipart/form-data">
                 <div class="group-inputs">
-                    <div>
-                        <label for="imagem">Imagem:</label>
-                        <input type="file" id="imagem" name="imagem">
-                    </div>
                     <div>
                         <label for="titulo">Título do Livro:</label>
                         <input type="text" id="titulo" name="titulo" required>
@@ -54,12 +48,18 @@
                         <label for="genero">Gênero:</label>
                         <input type="text" id="genero" name="genero" required>
                     </div>
+                    <div class="custom-file-button"> 
+                        <label for="imagem"><i class="bi bi-card-image"></i> Imagem do livro</label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*">
+                    </div>
                 </div>
                 <div class="descricao">
-                    <label for="descricao">Descrição (máx. 500 caracteres):</label>
+                    <label for="descricao">Descrição <strong>(máx. 500 caracteres):</strong></label>
                     <textarea id="descricao" name="descricao" rows="4" maxlength="500" required></textarea>
                 </div>
-                <button type="submit">Adicionar Livro</button>
+                <button type="submit">
+                    <span class="btn-txt">Adicionar Livro</span>
+                </button>
             </form>
 
         </main>
@@ -67,6 +67,7 @@
     <aside>
         <h1 class="logo">Enciclopédia literária</h1>
         <figure class="profile">
+            <button class="close"><i class="bi bi-x-lg"></i></button>
             <div class="container-img">
                 <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt="Foto de Perfil do Usuário Mariano Gonzaga">
