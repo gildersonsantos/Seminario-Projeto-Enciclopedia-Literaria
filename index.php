@@ -11,6 +11,25 @@
 </head>
 
 <body>
+    <?php
+        // Obtém a lista de hábitos do banco de dados MySQL
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bancodedados = "livraria";
+        // Cria uma conexão com o banco de dados
+        $conexao = new mysqli( $servidor, $usuario, $senha, $bancodedados);
+
+        // Verifica a conexão
+        if ($conexao->connect_error) {
+            die("Falha na conexão: " . $conexao->connect_error);
+        }
+
+        // Executa a query da variável $sql
+        $sql = " SELECT * FROM tb_livros ";
+        $resultado = $conexao->query($sql);
+        // Verifica se a query retornou registros
+    ?>
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
@@ -24,7 +43,7 @@
             <div class="container">
                 <h2>Lista de Livros</h2>
                 <button><i class="bi bi-arrows-expand"></i></button>
-                <button class="add-new-libre">Adicionar Novo Livro</button>
+                <a href="cadastro.php" class="add-new-libre"> Adicionar Novo Livro </a>
             </div>
             <hr>
             <table>
@@ -39,24 +58,36 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                            alt="Capa do Livro Mariano Gonzaga"></td>
-                        <td>As Aventuras de ChatGPT</td>
-                        <td>ChatGPT</td>
-                        <td>Aventura</td>
-                        <td>2024</td>
-                        <td>
-                            <div class="group-buttons">
-                                <button class="view"><i class="bi bi-eye"></i></button>
-                                <button class="edit"><i class="bi bi-pencil"></i></button>
-                                <button class="delete"><i class="bi bi-trash2"></i></button>
-                            </div>
+                    <?php if ($resultado->num_rows > 0) { ?>
+                        <?php while($registro = $resultado->fetch_assoc()) { ?>
+                            <tr>
+                            <th></th>
+                            <td><?= $registro["nome"]; ?></td>
+                            <td><?= $registro["autor"]; ?></td>
+                            <td><?= $registro["genero"]; ?></td>
+                            <td><?= $registro["data"]; ?></td>
+                            <td><img src="<?= $registro["imagem"]; ?>" alt="Imagem do livro"></td>
+                            <td>
+                                <div class="group-buttons">
+                                    <!-- <button class="view"><i class="bi bi-eye"></i></button> -->
+                                    <td><a href="visualizacao.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a></td>
+
+                                    <!-- <button class="edit"><i class="bi bi-pencil"></i></button> -->
+                                    <td><a href="editar.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a></td>
+                            
+                                    <!-- <button class="delete"><i class="bi bi-trash2"></i></button> -->
+                                    <td><a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a></td>
+                                </div>
+                            </td>
+                            <th></th>
+                            </tr>
+                        <?php }  ?>
                         </td>
-                    </tr>
                 </tbody>
             </table>
+                <?php } else { ?>
+                    <td>Não há registros</td>
+                <?php } $conexao->close(); ?>
         </main>
     </div>
     <aside>
