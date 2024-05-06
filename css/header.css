@@ -8,7 +8,8 @@ header {
     justify-content: flex-end;
     align-items: center;
     padding: 0 1.6rem;
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: var(--white-color);
 }
 
 header h2.logo {
@@ -55,6 +56,7 @@ header .form-search {
 }
 
 header .form-search input {
+    background-color: var(--white-color);
     border: 0.05rem solid var(--text-secondary-color);
     color: var(--text-secondary-color);
     padding: 0.6rem 0.8rem;

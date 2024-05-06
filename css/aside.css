@@ -180,3 +180,7 @@ aside button.logout:hover {
 aside button.logout i {
     font-size: 1.35rem;
 }
+
+aside button.close {
+    display: none;
+}

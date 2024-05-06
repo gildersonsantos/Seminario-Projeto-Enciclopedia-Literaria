@@ -1,7 +1,5 @@
 main {
-    background-color: #F8F8F8;    
     padding: 0 1.6rem;
-    height: calc(100vh - 4.25rem);
     border-top: 0.0625rem #f2eae1a5 solid;
 }
 
@@ -14,8 +12,6 @@ main h2 {
     font-size: 1.3rem;
     font-weight: bold;
     margin: 1.7rem 0 1.7rem auto;
-    /* text-align: center;
-    position: relative; */
 }
 
 main h3 {

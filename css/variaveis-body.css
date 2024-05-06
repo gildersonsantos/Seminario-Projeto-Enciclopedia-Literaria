@@ -14,4 +14,5 @@
 body {
     font-family: var(--font-montserrat);
     user-select: none;
+    background-color: #F8F8F8;  
 }
