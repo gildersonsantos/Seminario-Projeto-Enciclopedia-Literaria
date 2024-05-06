@@ -1,0 +1,178 @@
+main {  
+    padding: 0 1.6rem;
+    border-top: 0.0625rem #f2eae1a5 solid;
+    height: calc(100vh - 4.25rem);
+}
+
+main form .group-inputs, main form .descricao {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: #00000025 0 0 8px;
+    padding: 1.3rem;
+    margin: 1.7rem 0;
+    font-family: var(--font-montserrat);
+    font-size: 1rem;
+}
+
+main form .group-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 1.4rem;
+}
+
+main form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    overflow: hidden;
+}
+
+main form label {
+    position: relative;
+    font-weight: 400;
+    padding-left: 1rem;
+}
+
+main form label strong {
+    font-weight: 600;
+}
+
+main form label:not([for="imagem"]):before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0rem;
+    display: block;
+    width: 0.25rem;
+    height: 120%;
+    background-color: var(--tertiary-color);
+    transform: translateY(-50%);
+}
+
+main form input, main form textarea {
+    padding: 0.6rem 1rem;
+    border-radius: 0.5rem;
+    border: 0.1rem var(--text-color) solid;
+}
+
+main form input:focus, main form textarea:focus {
+    outline: none;
+}
+
+main form .descricao {
+    margin: 1.7rem 0;
+}
+
+main form input[type="file"] {
+    display: none;
+}
+main form .custom-file-button {
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    width: auto;
+    cursor: pointer;
+    border: 0.125rem solid var(--tertiary-color);
+    border-radius: 1.875rem;
+    transition: all .5s ease-in-out;
+}
+
+main form .custom-file-button label {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    padding-left: 2.1rem;
+}
+
+main form .custom-file-button:hover {
+    box-shadow: 0.0625rem 0.0625rem 2rem #00000029;
+}
+
+main form .custom-file-button label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    box-shadow: 0.0625rem 0.0625rem 2rem #00000029;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 1;
+    transition: all .3s;
+    border: 0.2rem solid var(--white-color);
+}
+
+main form .custom-file-button:hover label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    box-shadow: 0.0625rem 0.0625rem 2rem #00000029;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+}
+
+main form textarea {
+    resize: vertical;
+}
+
+main form button {
+    height: 3.1rem;
+    width: auto;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 0.125rem solid var(--secondary-color);
+    overflow: hidden;
+    border-radius: 1.875rem;
+    color: #333;
+    transition: all .5s ease-in-out;
+    padding: 0 2rem;  
+}
+
+main form button .btn-txt {
+    z-index: 1;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+main form button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--secondary-color);
+    border-radius: 1.875rem;
+    height: 0.625rem;
+    width: 0.625rem;
+    z-index: -1;
+    visibility: hidden;
+    transition: all .5s ease-in-out;
+}
+
+main form button:hover {
+    box-shadow: 0.0625rem 0.0625rem 12.5rem #252525;
+    color: var(--white-color);
+    border: none;
+}
+
+main form button:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}

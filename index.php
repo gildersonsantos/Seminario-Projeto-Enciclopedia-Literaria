@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enciclopédia literária</title>
+    <title>ADS | Enciclopédia literária</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/variaveis-body.css">
+    <link rel="stylesheet" href="css/aside.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main-home.css">
+    <link rel="stylesheet" href="css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -37,10 +42,14 @@
                 <input type="search" name="search" id="search" placeholder="Search...">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
-            <button class="bell"><i class="bi bi-bell"></i></button>
+            <div class="container-header-mobile">
+                <h2 class="logo">Enciclopédia literária</h2>
+                <button class="list"><i class="bi bi-list"></i></i></button>
+                <button class="bell"><i class="bi bi-bell"></i></button>
+            </div>
         </header>
         <main>
-            <div class="container">
+            <div class="container-main">
                 <h2>Lista de Livros</h2>
                 <button><i class="bi bi-arrows-expand"></i></button>
                 <a href="cadastro.php" class="add-new-libre"> Adicionar Novo Livro </a>
@@ -93,6 +102,7 @@
     <aside>
         <h1 class="logo">Enciclopédia literária</h1>
         <figure class="profile">
+            <button class="close"><i class="bi bi-x-lg"></i></button>
             <div class="container-img">
                 <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt="Foto de Perfil do Usuário Mariano Gonzaga">
@@ -111,13 +121,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link disabled" title="Elemento ainda em desenvolvimento">
                         <i class="bi bi-sliders"></i>
                         <span>Configurações</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="pages/sobre.html" class="nav-link">
                         <i class="bi bi-info"></i>
                         <span>Sobre</span>
                     </a>
@@ -129,6 +139,8 @@
             <i class="bi bi-box-arrow-right"></i>
         </button>
     </aside>
+    <script src="js/script.js"></script>
+    <script src="js/main-home.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,312 @@
+@media only screen and (max-width: 1023px) {
+    aside {
+        max-width: 3.43rem;
+        width: 3.43rem;
+        padding: 1.7rem;
+    }
+
+    aside .profile .container-img {
+        margin-top: 3.75rem;
+    }
+
+    aside .profile img {
+        width: 3.43rem;
+        height: 3.43rem;
+    }
+
+    aside .profile figcaption {
+        display: none;
+    }
+
+    aside .logo,
+    aside button.logout span,
+    aside .navbar .nav-link span {
+        display: none;
+    }
+
+    aside .navbar .nav-link {
+        padding: 0.8rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        margin-left: 6.83rem;
+    }
+
+    main .container-table {
+        max-width: calc(100vw - 6.83rem);
+        overflow: auto;
+    }
+
+    main table th {
+        padding: 0.4rem 0.8rem;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    main form button {
+        display: block;
+        width: 100%;
+    }
+    main form .group-inputs, main form .descricao {
+        padding: 0.5rem;
+        margin: 1.7rem 0;
+    }
+    main form .group-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    main img {
+        width: calc(100% - 4rem);
+    }
+    main .libre {
+        display: block;
+    }
+
+    main article .group-buttons {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-height: 45vh;
+        height: 45vh;
+        max-width: 4rem;
+        width: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem;
+        border: 0.05rem solid var(--text-color);
+        background-color: #626262;
+        border-left: none;
+        border-radius: 0 0.4rem 0.4rem 0;
+        box-shadow: #00000025 0 0 8px;
+    }
+
+}
+
+@media only screen and (max-width: 660px) {
+
+
+    aside.active button.close {
+        display: block;
+        border: 0.1rem solid var(--secondary-color);
+        background-color: transparent;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        border-left: none;
+        border-bottom: none;
+        cursor: pointer;
+        transition: all .3s;
+    }
+
+    aside.active button.close:hover {
+        animation: close .3s forwards;
+    }
+
+    @keyframes close {
+        0% {
+            transform: rotate(0deg);
+            border-left: none;
+            border-bottom: none;
+        }
+        
+        30%, 100% {
+            transform: rotate(720deg);
+            border-left: 0.1rem solid var(--secondary-color);
+            border-bottom: 0.1rem solid var(--secondary-color);
+            box-shadow: #00000025 0 0 8px;
+            text-shadow: #00000037 0 0 8px;
+        }
+    }
+
+    aside {
+        display: none;
+    }
+
+    .container {
+        margin-left: 0;
+    }
+
+    main .container-table {
+        max-width: 100vw;
+        overflow: auto;
+    }
+
+    header button.list {
+        display: inline-block;
+        margin-left: 1.2rem;
+    }
+
+    aside.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        animation: surgirAside 0.3s ease-in-out forwards;
+        z-index: 2;
+        box-shadow: #00000025 0 0 8px;
+        border-left: 0.8rem solid var(--secondary-color);
+        border-right: 0.1rem solid var(--secondary-color);
+    }
+    
+    aside.reverse {
+        display: flex;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        animation: surgirAsideReverse 0.3s ease-in-out forwards;
+        z-index: 2;
+        box-shadow: #00000025 0 0 8px;
+        border-left: 0.8rem solid var(--secondary-color);
+        border-right: 0.1rem solid var(--secondary-color);
+    }
+
+    header .form-search input {
+        width: 16rem;
+    }
+
+    @keyframes surgirAside {
+        0% {
+            transform: translateX(-6.83rem);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+
+    @keyframes surgirAsideReverse {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-6.83rem);
+            display: none;
+        }
+    }
+    body.bg-blur::after { 
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.274);
+        backdrop-filter: blur(8px);
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    aside {
+        z-index: 2;
+        border-right: 0.02rem solid var(--text-tertiary-color);
+    }
+
+    header {
+        flex-direction: column-reverse;
+        padding: 2.2rem 1.6rem;
+        margin: 0;
+        gap: 1rem;    
+        height: 4.25rem; 
+    }
+
+    header .container-header-mobile {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.1rem;
+        width: 100%;
+    }
+
+    header h2.logo {
+        display: block;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: var(--text-color);
+        font-size: 1.08rem;
+        letter-spacing: -1.2px;
+        margin-right: auto;
+    }
+
+    header button {
+        font-size: 1.5rem;
+    }
+
+    header button.bell {
+        margin: 0;
+    }
+
+    header button.caret-left {
+        display: none;
+    }
+
+    header .form-search {
+        width: 100%;
+    }
+
+    header .form-search input {
+        padding: 0.8rem;
+        width: 100%;
+    }
+
+    main .container-main h2 {
+        display: none;
+    }
+
+    main .container-main {
+        justify-content: space-between;
+        gap: 0;
+    }
+
+    main button .bi-arrows-expand {
+        margin-left: 1rem;
+    }
+
+    main button.add-new-libre {
+        font-weight: 500;
+        color: var(--white-color);
+        text-transform: uppercase;
+        background-color: var(--secondary-color);
+        letter-spacing: 0.0625rem;
+        font-size: 0.7rem;
+        padding: 0.9rem 2rem;
+        border-radius: 0.4rem;
+    }
+
+    main>hr {
+        margin-bottom: 0;
+    }
+
+    main table th {
+        padding: 0 0.8rem;
+    }
+
+    main table th:nth-child(n+3):nth-child(-n+5),
+    main table td:nth-child(n+3):nth-child(-n+5) {
+        display: none;
+    }
+
+    main table td {
+        font-size: 0.8rem;
+    }
+
+    main table td img {
+        width: 3.6rem;
+        height: 3.06rem;
+    }
+
+    main table .group-buttons button {
+        font-size: 1.2rem;
+    }
+}
