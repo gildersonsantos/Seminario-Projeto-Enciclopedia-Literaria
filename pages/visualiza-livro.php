@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    <?php
+        // Obtém a lista de hábitos do banco de dados MySQL
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bancodedados = "livraria";
+        // Cria uma conexão com o banco de dados
+        $conexao = new mysqli( $servidor, $usuario, $senha, $bancodedados);
+
+        $id = intval($_GET["id"]);
+        // Verifica a conexão
+        if ($conexao->connect_error) {
+            die("Falha na conexão: " . $conexao->connect_error);
+        }
+
+        // Executa a query da variável $sql
+        $sql = " SELECT * FROM tb_livros "." WHERE id_livro=".$id;
+        $resultado = $conexao->query($sql);
+        // Verifica se a query retornou registros
+    ?>
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
@@ -31,17 +51,18 @@
         </header>
         <main>
             <article>
+            <?php while($registro = $resultado->fetch_assoc()) { ?>
                 <figure class="libre">
                     <div class="container-img">
-                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                            alt="Foto de Perfil do Usuário Mariano Gonzaga">
+                        <img src="<?= $registro["imagem"]; ?>"
+                            alt="Foto de Capa do Livro">
                     </div>
                     <figcaption>
-                        <h2>As Aventuras de ChatGPT</h2>
-                        <p>ChatGPT</p>
+                        <h2><?= $registro["nome"]; ?></h2>
+                        <p><?= $registro["autor"]; ?></p>
                         <div class="container-informacoes">
-                            <span>Aventura</span>
-                            <span>2024</span>
+                            <span><?= $registro["genero"]; ?></span>
+                            <span><?= $registro["ano"]; ?></span>
                         </div>
                     </figcaption>
                 </figure>
@@ -49,37 +70,8 @@
                     <button class="edit"><i class="bi bi-pencil"></i></button>
                     <button class="delete"><i class="bi bi-trash2"></i></button>
                 </div>
-
-                <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi similique
-                    praesentium vero incidunt ipsam cum illo officia explicabo sint quibusdam? Voluptatibus aperiam
-                    suscipit asperiores! Corporis facere nulla nostrum magnam eum.
-                    Soluta vitae sit aliquid quas laboriosam molestiae ab, modi temporibus itaque placeat deleniti ad
-                    similique, officia doloremque unde corrupti, quae animi amet! Cumque, voluptatem quaerat similique
-                    corrupti ipsa officiis incidunt?
-                    Repellat assumenda, nam suscipit alias accusamus quisquam temporibus natus possimus totam fuga eius
-                    cupiditate dignissimos sit earum harum? Earum eos vel expedita magnam impedit modi voluptatem
-                    facilis sequi pariatur eum.
-                    Tempora, nihil tempore! Quas assumenda provident consequatur rerum sit in, sed mollitia? Nam magnam
-                    error sunt iure nisi qui reiciendis, nostrum aspernatur autem nobis dicta corrupti, omnis velit
-                    architecto maiores.
-                    Ullam facilis, illo accusantium nesciunt dolores quos? Ea voluptatem repellendus ex suscipit
-                    perspiciatis quaerat animi neque, dignissimos corporis pariatur. Earum natus excepturi dolores
-                    commodi alias cum voluptatibus odit est velit?
-                    Quasi praesentium delectus iusto quo in ad? Ipsam et voluptatem dignissimos quisquam adipisci,
-                    libero animi quibusdam aliquid repudiandae soluta inventore debitis ab exercitationem. Adipisci
-                    quidem enim sit assumenda soluta perspiciatis.
-                    Laudantium et, molestias expedita similique quaerat repudiandae eum omnis nisi deserunt animi,
-                    officia architecto distinctio aliquid odio neque possimus atque ipsum fugiat mollitia dicta sint
-                    ullam. Libero repellat atque modi?
-                    Iure quisquam facere repudiandae. Rem eligendi dolor ullam debitis iure quod? Vel esse dignissimos
-                    sit laborum corrupti fugit. Maxime cupiditate maiores itaque necessitatibus molestiae alias qui
-                    tenetur esse rem labore.
-                    Sequi itaque, excepturi optio architecto et veritatis qui nobis quia possimus dolor soluta corporis
-                    placeat, similique omnis ipsum quisquam nisi saepe impedit facere id aliquid magni magnam doloribus.
-                    Eos, dicta?
-                    Soluta possimus ab magnam commodi quasi tenetur iusto temporibus rerum nostrum adipisci laboriosam
-                    eum quos incidunt perferendis magni architecto inventore, qui minus. Magnam, impedit! Quisquam
-                    doloribus non incidunt officia perspiciatis.</p>
+                <p class="descricao"> <?= $registro["descricao"]; ?> </p>
+                <?php }  ?>
             </article>
         </main>
     </div>
@@ -99,7 +91,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
+                    <a href="../index.php" class="nav-link">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>

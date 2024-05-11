@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADS | Enciclopédia literária</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/variaveis-body.css">
-    <link rel="stylesheet" href="css/aside.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-home.css">
-    <link rel="stylesheet" href="css/medias-querys.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variaveis-body.css">
+    <link rel="stylesheet" href="../css/aside.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/main-home.css">
+    <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -52,7 +52,7 @@
             <div class="container-main">
                 <h2>Lista de Livros</h2>
                 <button><i class="bi bi-arrows-expand"></i></button>
-                <a href="cadastro.php" class="add-new-libre"> Adicionar Novo Livro </a>
+                <a class="add-new-libre" href="adiciona-livro.php" > Adicionar Novo Livro </a>
             </div>
             <hr>
             <table>
@@ -63,6 +63,7 @@
                         <th>Autor</th>
                         <th>Gênero</th>
                         <th>Ano de lançamento</th>
+                        <th>Capa</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -74,15 +75,15 @@
                             <td><?= $registro["nome"]; ?></td>
                             <td><?= $registro["autor"]; ?></td>
                             <td><?= $registro["genero"]; ?></td>
-                            <td><?= $registro["data"]; ?></td>
+                            <td><?= $registro["ano"]; ?></td>
                             <td><img src="<?= $registro["imagem"]; ?>" alt="Imagem do livro"></td>
                             <td>
                                 <div class="group-buttons">
                                     <!-- <button class="view"><i class="bi bi-eye"></i></button> -->
-                                    <td><a href="visualizacao.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a></td>
+                                    <td><a href="visualiza-livro.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a></td>
 
                                     <!-- <button class="edit"><i class="bi bi-pencil"></i></button> -->
-                                    <td><a href="editar.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a></td>
+                                    <td><a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a></td>
                             
                                     <!-- <button class="delete"><i class="bi bi-trash2"></i></button> -->
                                     <td><a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a></td>
@@ -115,7 +116,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="index.php" class="nav-link active">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>
@@ -127,7 +128,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/sobre.html" class="nav-link">
+                    <a href="sobre.html" class="nav-link">
                         <i class="bi bi-info"></i>
                         <span>Sobre</span>
                     </a>
@@ -139,8 +140,8 @@
             <i class="bi bi-box-arrow-right"></i>
         </button>
     </aside>
-    <script src="js/script.js"></script>
-    <script src="js/main-home.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/main-home.js"></script>
 </body>
 
 </html>

@@ -16,6 +16,26 @@
 </head>
 
 <body>
+    <?php
+        // Obtém a lista de hábitos do banco de dados MySQL
+        $servidor = "localhost";
+        $usuario = "root";
+        $senha = "";
+        $bancodedados = "livraria";
+        // Cria uma conexão com o banco de dados
+        $conexao = new mysqli( $servidor, $usuario, $senha, $bancodedados);
+
+        $id = intval($_GET["id"]);
+        // Verifica a conexão
+        if ($conexao->connect_error) {
+            die("Falha na conexão: " . $conexao->connect_error);
+        }
+
+        // Executa a query da variável $sql
+        $sql = " SELECT * FROM tb_livros "." WHERE id_livro=".$id;
+        $resultado = $conexao->query($sql);
+        // Verifica se a query retornou registros
+    ?>
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
@@ -30,38 +50,40 @@
             </div>
         </header>
         <main>
-            <form action="/upload" method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="formulario" action="editlivro.php">
+            <?php while($registro = $resultado->fetch_assoc()) { ?>
                 <div class="group-inputs">
                     <div>
                         <label for="titulo">Título do Livro:</label>
-                        <input type="text" id="titulo" name="titulo" required>
+                        <input type="text" id="titulo" name="titulo" value="<?php echo $registro["nome"]; ?>" required>
                     </div>
                     <div>
                         <label for="ano">Ano de Lançamento:</label>
-                        <input type="number" id="ano" name="ano" min="1800" max="2100" required>
+                        <input type="number" id="ano" name="ano" min="1800" max="2100" value="<?php echo $registro["ano"]; ?>" required>
                     </div>
                     <div>
                         <label for="autor">Nome do Autor:</label>
-                        <input type="text" id="autor" name="autor" required>
+                        <input type="text" id="autor" name="autor" value="<?php echo $registro["autor"]; ?>" required>
                     </div>
                     <div>
                         <label for="genero">Gênero:</label>
-                        <input type="text" id="genero" name="genero" required>
+                        <input type="text" id="genero" name="genero" value="<?php echo $registro["genero"]; ?>" required>
                     </div>
                     <div class="custom-file-button"> 
                         <label for="imagem"><i class="bi bi-card-image"></i> Imagem do livro</label>
-                        <input type="file" id="imagem" name="imagem" accept="image/*">
+                        <input type="file" id="imagem" name="imagem" accept="image/*" value="<?php echo $registro["imagem"]; ?>">
                     </div>
                 </div>
                 <div class="descricao">
                     <label for="descricao">Descrição <strong>(máx. 500 caracteres):</strong></label>
-                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" required></textarea>
+                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" required> <?php echo $registro["descricao"]; ?> </textarea>
                 </div>
+                <input type="text" name="id" id="<?php echo $registro["id_livro"]; ?>" value="<?php echo $registro["id_livro"]; ?>" hidden >
                 <button type="submit">
                     <span class="btn-txt">Salvar alterações</span>
                 </button>
             </form>
-
+            <?php }  ?>
         </main>
     </div>
     <aside>
@@ -80,7 +102,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
+                    <a href="../index.php" class="nav-link">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>

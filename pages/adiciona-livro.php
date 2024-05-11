@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -30,11 +30,11 @@
             </div>
         </header>
         <main>
-            <form action="/upload" method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" id="formulario" action="insertlivro.php">
                 <div class="group-inputs">
                     <div>
                         <label for="titulo">Título do Livro:</label>
-                        <input type="text" id="titulo" name="titulo" required>
+                        <input type="text" id="titulo" name="titulo" required autofocus>
                     </div>
                     <div>
                         <label for="ano">Ano de Lançamento:</label>
@@ -80,7 +80,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="../index.html" class="nav-link">
+                    <a href="../index.php" class="nav-link">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>
