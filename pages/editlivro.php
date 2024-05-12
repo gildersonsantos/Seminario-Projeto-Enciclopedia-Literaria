@@ -1,6 +1,6 @@
 <?php
     // Obtém a lista de hábitos do banco de dados MySQL
-    $servidor = "localhost";
+    $servidor = "localhost:3308";
     $usuario = "root";
     $senha = "";
     $bancodedados = "livraria";
@@ -24,13 +24,19 @@
     $imagem_nome = $_FILES["imagem"]['name'];
     $extensao = strtolower(pathinfo($imagem_nome, PATHINFO_EXTENSION));
     $imagem = $_FILES["imagem"]['full_path'];
+
     $imagem_temp = $_FILES['imagem']['tmp_name'];
-
-    $salvar_img = move_uploaded_file($imagem_temp, $pasta_img . $imagem_nome . "." . $extensao);
-    $path = $pasta_img . $imagem_nome . "." . $extensao;
-
+    // $imagem_dados = file_get_contents($imagem_temp);
     // Executa a query da variável $sql
-    $sql = "UPDATE tb_livros SET nome='$nome', ano='$ano', autor='$autor', genero='$genero', imagem='$path', descricao='$descricao' WHERE id_livro=$id";
+    if($extensao == "jpg" || $extensao == 'png'){
+        $salvar_img = move_uploaded_file($imagem_temp, $pasta_img . $imagem_nome . "." . $extensao);
+        $path = $pasta_img . $imagem_nome . "." . $extensao;
+        // Executa a query da variável $sql
+        $sql = "UPDATE tb_livros SET nome='$nome', ano='$ano', autor='$autor', genero='$genero', imagem='$path', descricao='$descricao' WHERE id_livro=$id";      
+    } else {
+        // Executa a query da variável $sql
+        $sql = "UPDATE tb_livros SET nome='$nome', ano='$ano', autor='$autor', genero='$genero', descricao='$descricao' WHERE id_livro=$id";
+    }  
     if (!($conexao->query($sql) === TRUE)) {
         $conexao->close();
         die("Erro: " . $sql . "<br>" . $conexao->error);

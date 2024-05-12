@@ -1,6 +1,6 @@
 <?php
         // Obtém a lista de hábitos do banco de dados MySQL
-        $servidor = "localhost";
+        $servidor = "localhost:3308";
         $usuario = "root";
         $senha = "";
         $bancodedados = "livraria";
@@ -30,9 +30,10 @@
             $salvar_img = move_uploaded_file($imagem_temp, $pasta_img . $imagem_nome . "." . $extensao);
             $path = $pasta_img . $imagem_nome . "." . $extensao;
             $sql = "INSERT INTO tb_livros (nome, genero, autor, ano, imagem, descricao) VALUES ('".$nome."', '".$genero."', '".$autor."', '".$ano."', '".$path."', '".$descricao."')";
-        }else{
-            die("Tipo de arquivo não aceito");
-        }
+        } else {
+            $path = "../img/img-padrao.png";
+            $sql = "INSERT INTO tb_livros (nome, genero, autor, ano, imagem, descricao) VALUES ('".$nome."', '".$genero."', '".$autor."', '".$ano."', '".$path."', '".$descricao."')";
+        }     
         // $sql = “INSERT INTO tb_livros (nome, genero, autor, ano, imagem, descricao) VALUES (‘”.$nome.”’, ‘”.$genero.”’, ‘”.$autor.”’, ‘”.$ano.”’, ‘”.$imagem.”’ ,‘”.$descricao.”’)”;
         if (!($conexao->query($sql) === TRUE)) {
             $conexao->close();

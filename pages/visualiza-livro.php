@@ -13,12 +13,19 @@
     <link rel="stylesheet" href="../css/main-visualiza-livro.css">
     <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        h2 {
+            text-transform: capitalize;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <?php
         // Obtém a lista de hábitos do banco de dados MySQL
-        $servidor = "localhost";
+        $servidor = "localhost:3308";
         $usuario = "root";
         $senha = "";
         $bancodedados = "livraria";
@@ -58,7 +65,7 @@
                             alt="Foto de Capa do Livro">
                     </div>
                     <figcaption>
-                        <h2><?= $registro["nome"]; ?></h2>
+                        <h2 id="title"><?= $registro["nome"]; ?></h2>
                         <p><?= $registro["autor"]; ?></p>
                         <div class="container-informacoes">
                             <span><?= $registro["genero"]; ?></span>
@@ -67,10 +74,18 @@
                     </figcaption>
                 </figure>
                 <div class="group-buttons">
-                    <button class="edit"><i class="bi bi-pencil"></i></button>
-                    <button class="delete"><i class="bi bi-trash2"></i></button>
+                    <a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a>
+                    <a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a>
                 </div>
-                <p class="descricao"> <?= $registro["descricao"]; ?> </p>
+                <p class="descricao">
+                    <?php
+                        if ($registro["descricao"] != "") {
+                            echo $registro["descricao"];
+                        } else {
+                            echo "Nenhuma descrição informada ao respectivo livro.";
+                        }
+                    ?> 
+                </p>
                 <?php }  ?>
             </article>
         </main>
@@ -91,7 +106,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="../index.php" class="nav-link">
+                    <a href="index.php" class="nav-link">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>

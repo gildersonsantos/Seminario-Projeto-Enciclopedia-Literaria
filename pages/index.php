@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADS | Enciclopédia literária</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variaveis-body.css">
     <link rel="stylesheet" href="../css/aside.css">
@@ -17,8 +17,9 @@
 
 <body>
     <?php
+        session_start();
         // Obtém a lista de hábitos do banco de dados MySQL
-        $servidor = "localhost";
+        $servidor = "localhost:3308";
         $usuario = "root";
         $senha = "";
         $bancodedados = "livraria";
@@ -30,16 +31,49 @@
             die("Falha na conexão: " . $conexao->connect_error);
         }
 
-        // Executa a query da variável $sql
-        $sql = " SELECT * FROM tb_livros ";
+        $ordernaCrescente = true;
+    
+        if (isset($_SESSION["ordernaCrescente"])) {
+            $ordernaCrescente = $_SESSION["ordernaCrescente"];
+        }
+        
+        if (isset($_POST["alterar"])) {
+            $ordernaCrescente = !$ordernaCrescente; 
+            $_SESSION["ordernaCrescente"] = $ordernaCrescente;
+        }
+    
+        // Verifica se a consulta de pesquisa existe
+        if (isset($_GET['search'])) {
+            $search = $_GET['search'];
+            $_SESSION['search'] = $search;  // Armazena a consulta de pesquisa na sessão
+        } else if (isset($_SESSION['search'])) {
+            $search = $_SESSION['search'];
+        } else {
+            $search = '';
+        }
+    
+        // Constrói a consulta SQL
+        $sql = "SELECT * FROM tb_livros";
+    
+        if (!empty($search)) {
+            $sql .= " WHERE nome LIKE '%$search%' OR autor LIKE '%$search%' OR genero LIKE '%$search%' OR ano LIKE '%$search%'"; 
+        }
+    
+        // Adiciona a ordenação
+        if ($ordernaCrescente) {
+            $sql .= " ORDER BY nome";
+        } else {
+            $sql .= " ORDER BY nome DESC";
+        }
+
         $resultado = $conexao->query($sql);
         // Verifica se a query retornou registros
     ?>
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
-            <form action="" class="form-search">
-                <input type="search" name="search" id="search" placeholder="Search...">
+            <form action="index.php" method="GET" class="form-search">
+                <input type="search" name="search" id="search" placeholder="Search..." value="<?php echo isset($_SESSION['search']) ? $_SESSION['search'] : ''; ?>">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
             <div class="container-header-mobile">
@@ -51,53 +85,52 @@
         <main>
             <div class="container-main">
                 <h2>Lista de Livros</h2>
-                <button><i class="bi bi-arrows-expand"></i></button>
+                                <!-- index.html -->
+                <form action="index.php" method="POST">
+                    <button type="submit" name="alterar"><i class="bi bi-arrows-expand"></i></button>
+                </form>
+
                 <a class="add-new-libre" href="adiciona-livro.php" > Adicionar Novo Livro </a>
             </div>
             <hr>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Nome da obra</th>
-                        <th>Autor</th>
-                        <th>Gênero</th>
-                        <th>Ano de lançamento</th>
-                        <th>Capa</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if ($resultado->num_rows > 0) { ?>
-                        <?php while($registro = $resultado->fetch_assoc()) { ?>
-                            <tr>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr>
                             <th></th>
-                            <td><?= $registro["nome"]; ?></td>
-                            <td><?= $registro["autor"]; ?></td>
-                            <td><?= $registro["genero"]; ?></td>
-                            <td><?= $registro["ano"]; ?></td>
-                            <td><img src="<?= $registro["imagem"]; ?>" alt="Imagem do livro"></td>
-                            <td>
-                                <div class="group-buttons">
-                                    <!-- <button class="view"><i class="bi bi-eye"></i></button> -->
-                                    <td><a href="visualiza-livro.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a></td>
-
-                                    <!-- <button class="edit"><i class="bi bi-pencil"></i></button> -->
-                                    <td><a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a></td>
-                            
-                                    <!-- <button class="delete"><i class="bi bi-trash2"></i></button> -->
-                                    <td><a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a></td>
-                                </div>
-                            </td>
+                            <th>Nome da obra</th>
+                            <th>Autor</th>
+                            <th>Gênero</th>
+                            <th>Ano de lançamento</th>
                             <th></th>
-                            </tr>
-                        <?php }  ?>
-                        </td>
-                </tbody>
-            </table>
-                <?php } else { ?>
-                    <td>Não há registros</td>
-                <?php } $conexao->close(); ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($resultado->num_rows > 0) { ?>
+                            <?php while($registro = $resultado->fetch_assoc()) { ?>
+                                <tr>
+                                    <td>
+                                        <img src="<?= $registro["imagem"]; ?>" alt="Capa do Livro: <?= $registro["nome"]; ?>">
+                                    </td>
+                                    <td><?= $registro["nome"]; ?></td>
+                                    <td><?= $registro["autor"]; ?></td>
+                                    <td><?= $registro["genero"]; ?></td>
+                                    <td><?= $registro["ano"]; ?></td>
+                                    <td>
+                                        <div class="group-buttons">
+                                            <a href="visualiza-livro.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a>
+                                            <a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a>
+                                            <a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php }  ?>
+                        <?php } else { ?>
+                            <tr><td colspan="6" class="result-none">Não há registros</td></tr>
+                        <?php } $conexao->close(); ?>
+                    </tbody>
+                </table>
+            </div>
         </main>
     </div>
     <aside>

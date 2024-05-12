@@ -1,6 +1,6 @@
 <?php
     // Obtém a lista de hábitos do banco de dados MySQL
-    $servidor = "localhost";
+    $servidor = "localhost:3308";
     $usuario = "root";
     $senha = "";
     $bancodedados = "livraria";
