@@ -13,9 +13,48 @@
     <link rel="stylesheet" href="../css/main-visualiza-livro.css">
     <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        h2 {
+            text-transform: capitalize;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:pages/visualiza-livro.html
+========
+=======
+<<<<<<< Updated upstream:pages/visualiza-livro.html
+=======
+>>>>>>> Stashed changes
+    <?php
+        // Obtém a lista de hábitos do banco de dados MySQL
+        $servidor = "localhost:3308";
+        $usuario = "root";
+        $senha = "";
+        $bancodedados = "livraria";
+        // Cria uma conexão com o banco de dados
+        $conexao = new mysqli( $servidor, $usuario, $senha, $bancodedados);
+
+        $id = intval($_GET["id"]);
+        // Verifica a conexão
+        if ($conexao->connect_error) {
+            die("Falha na conexão: " . $conexao->connect_error);
+        }
+
+        // Executa a query da variável $sql
+        $sql = " SELECT * FROM tb_livros "." WHERE id_livro=".$id;
+        $resultado = $conexao->query($sql);
+        // Verifica se a query retornou registros
+    ?>
+<<<<<<< Updated upstream
+>>>>>>>> Stashed changes:pages/visualiza-livro.php
+=======
+>>>>>>> Stashed changes:pages/visualiza-livro.php
+>>>>>>> Stashed changes
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
@@ -37,8 +76,23 @@
                             alt="Foto de Perfil do Usuário Mariano Gonzaga">
                     </div>
                     <figcaption>
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:pages/visualiza-livro.html
                         <h2>As Aventuras de ChatGPT</h2>
                         <p>ChatGPT</p>
+========
+                        <h2 id="title"><?= $registro["nome"]; ?></h2>
+                        <p><?= $registro["autor"]; ?></p>
+>>>>>>>> Stashed changes:pages/visualiza-livro.php
+=======
+<<<<<<< Updated upstream:pages/visualiza-livro.html
+                        <h2>As Aventuras de ChatGPT</h2>
+                        <p>ChatGPT</p>
+=======
+                        <h2 id="title"><?= $registro["nome"]; ?></h2>
+                        <p><?= $registro["autor"]; ?></p>
+>>>>>>> Stashed changes:pages/visualiza-livro.php
+>>>>>>> Stashed changes
                         <div class="container-informacoes">
                             <span>Aventura</span>
                             <span>2024</span>
@@ -46,9 +100,14 @@
                     </figcaption>
                 </figure>
                 <div class="group-buttons">
-                    <button class="edit"><i class="bi bi-pencil"></i></button>
-                    <button class="delete"><i class="bi bi-trash2"></i></button>
+                    <a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a>
+                    <a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a>
                 </div>
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:pages/visualiza-livro.html
+=======
+<<<<<<< Updated upstream:pages/visualiza-livro.html
+>>>>>>> Stashed changes
 
                 <p class="descricao">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi similique
                     praesentium vero incidunt ipsam cum illo officia explicabo sint quibusdam? Voluptatibus aperiam
@@ -80,6 +139,26 @@
                     Soluta possimus ab magnam commodi quasi tenetur iusto temporibus rerum nostrum adipisci laboriosam
                     eum quos incidunt perferendis magni architecto inventore, qui minus. Magnam, impedit! Quisquam
                     doloribus non incidunt officia perspiciatis.</p>
+<<<<<<< Updated upstream
+========
+=======
+=======
+>>>>>>> Stashed changes
+                <p class="descricao">
+                    <?php
+                        if ($registro["descricao"] != "") {
+                            echo $registro["descricao"];
+                        } else {
+                            echo "Nenhuma descrição informada ao respectivo livro.";
+                        }
+                    ?> 
+                </p>
+                <?php }  ?>
+<<<<<<< Updated upstream
+>>>>>>>> Stashed changes:pages/visualiza-livro.php
+=======
+>>>>>>> Stashed changes:pages/visualiza-livro.php
+>>>>>>> Stashed changes
             </article>
         </main>
     </div>
@@ -99,7 +178,19 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
+<<<<<<< Updated upstream
+<<<<<<<< Updated upstream:pages/visualiza-livro.html
                     <a href="../index.html" class="nav-link">
+========
+                    <a href="index.php" class="nav-link">
+>>>>>>>> Stashed changes:pages/visualiza-livro.php
+=======
+<<<<<<< Updated upstream:pages/visualiza-livro.html
+                    <a href="../index.html" class="nav-link">
+=======
+                    <a href="index.php" class="nav-link">
+>>>>>>> Stashed changes:pages/visualiza-livro.php
+>>>>>>> Stashed changes
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>
