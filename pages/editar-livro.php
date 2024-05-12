@@ -18,7 +18,7 @@
 <body>
     <?php
         // Obtém a lista de hábitos do banco de dados MySQL
-        $servidor = "localhost";
+        $servidor = "localhost:3308";
         $usuario = "root";
         $senha = "";
         $bancodedados = "livraria";
@@ -59,7 +59,7 @@
                     </div>
                     <div>
                         <label for="ano">Ano de Lançamento:</label>
-                        <input type="number" id="ano" name="ano" min="1800" max="2100" value="<?php echo $registro["ano"]; ?>" required>
+                        <input type="number" id="ano" name="ano" value="<?php echo $registro["ano"]; ?>" required>
                     </div>
                     <div>
                         <label for="autor">Nome do Autor:</label>
@@ -71,12 +71,12 @@
                     </div>
                     <div class="custom-file-button"> 
                         <label for="imagem"><i class="bi bi-card-image"></i> Imagem do livro</label>
-                        <input type="file" id="imagem" name="imagem" accept="image/*" value="<?php echo $registro["imagem"]; ?>">
+                        <input type="file" id="imagem" name="imagem" accept="image/*">
                     </div>
                 </div>
                 <div class="descricao">
                     <label for="descricao">Descrição <strong>(máx. 500 caracteres):</strong></label>
-                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" required> <?php echo $registro["descricao"]; ?> </textarea>
+                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" > <?php echo $registro["descricao"]; ?> </textarea>
                 </div>
                 <input type="text" name="id" id="<?php echo $registro["id_livro"]; ?>" value="<?php echo $registro["id_livro"]; ?>" hidden >
                 <button type="submit">
@@ -102,7 +102,7 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
-                    <a href="../index.php" class="nav-link">
+                    <a href="index.php" class="nav-link">
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>

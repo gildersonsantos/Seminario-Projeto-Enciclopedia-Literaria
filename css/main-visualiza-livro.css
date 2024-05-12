@@ -15,7 +15,9 @@ main img {
 main h2 {
     font-size: 1.3rem;
     font-weight: bold;
-    margin: 1.7rem 0 1.7rem auto;
+    margin: 1.7rem 0;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 
@@ -67,7 +69,7 @@ main .container-informacoes span {
     border-radius: 0.5rem;
 }
 
-main button {
+main a {
     color: var(--secondary-color);    
     background-color: transparent;
     font-weight: bolder;
@@ -83,7 +85,7 @@ main button {
     transition: all .2s ease-in;
 }
 
-main button:hover {
+main a:hover {
     color: var(--white-color);     
     background-color: var(--secondary-color);
 }
