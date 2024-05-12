@@ -20,7 +20,7 @@ main h2 {
     margin-right: auto;
 }
 
-main button {
+main button, table .group-buttons a {
     color: var(--secondary-color);    
     background-color: transparent;
     font-weight: bolder;
@@ -131,11 +131,17 @@ main table td img {
     border-radius: 0.5rem;
 }
 
+main table td.result-none {
+    border-radius: 1rem;
+}
+
 main table .group-buttons {
     text-align: right;
 }
 
-main table .group-buttons button {
+main table .group-buttons a {
+    display: inline-block;
+    text-decoration: none;
     cursor: pointer; 
     margin-left: 0.5rem;
     color: var(--secondary-color);
@@ -143,12 +149,11 @@ main table .group-buttons button {
     font-weight: bolder;
     font-size: 1.4rem;
     border: none;    
-    height: 2.2rem;
-    width: 2.2rem;    
+    padding: 0.5rem;
     border-radius: 50%;
 }
 
-main table .group-buttons button:hover {
+main table .group-buttons a:hover {
     color: var(--white-color);     
     background-color: var(--secondary-color);
     box-shadow: 0 0 1px #00000032;

@@ -16,6 +16,29 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream:pages/editar-livro.html
+=======
+    <?php
+        // Obtém a lista de hábitos do banco de dados MySQL
+        $servidor = "localhost:3308";
+        $usuario = "root";
+        $senha = "";
+        $bancodedados = "livraria";
+        // Cria uma conexão com o banco de dados
+        $conexao = new mysqli( $servidor, $usuario, $senha, $bancodedados);
+
+        $id = intval($_GET["id"]);
+        // Verifica a conexão
+        if ($conexao->connect_error) {
+            die("Falha na conexão: " . $conexao->connect_error);
+        }
+
+        // Executa a query da variável $sql
+        $sql = " SELECT * FROM tb_livros "." WHERE id_livro=".$id;
+        $resultado = $conexao->query($sql);
+        // Verifica se a query retornou registros
+    ?>
+>>>>>>> Stashed changes:pages/editar-livro.php
     <div class="container">
         <header>
             <button class="caret-left"><i class="bi bi-caret-left"></i></button>
@@ -38,7 +61,11 @@
                     </div>
                     <div>
                         <label for="ano">Ano de Lançamento:</label>
+<<<<<<< Updated upstream:pages/editar-livro.html
                         <input type="number" id="ano" name="ano" min="1800" max="2100" required>
+=======
+                        <input type="number" id="ano" name="ano" value="<?php echo $registro["ano"]; ?>" required>
+>>>>>>> Stashed changes:pages/editar-livro.php
                     </div>
                     <div>
                         <label for="autor">Nome do Autor:</label>
@@ -55,7 +82,11 @@
                 </div>
                 <div class="descricao">
                     <label for="descricao">Descrição <strong>(máx. 500 caracteres):</strong></label>
+<<<<<<< Updated upstream:pages/editar-livro.html
                     <textarea id="descricao" name="descricao" rows="4" maxlength="500" required></textarea>
+=======
+                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" > <?php echo $registro["descricao"]; ?> </textarea>
+>>>>>>> Stashed changes:pages/editar-livro.php
                 </div>
                 <button type="submit">
                     <span class="btn-txt">Salvar alterações</span>
@@ -80,7 +111,11 @@
         <nav>
             <ul class="navbar">
                 <li class="nav-item">
+<<<<<<< Updated upstream:pages/editar-livro.html
                     <a href="../index.html" class="nav-link">
+=======
+                    <a href="index.php" class="nav-link">
+>>>>>>> Stashed changes:pages/editar-livro.php
                         <i class="bi bi-house-door"></i>
                         <span>Home</span>
                     </a>
