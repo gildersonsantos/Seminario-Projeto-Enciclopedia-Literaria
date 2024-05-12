@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADS | Enciclopédia literária</title>
+    <title>ADS | Enciclopédia Literária</title>
     <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variaveis-body.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/main-sobre.css">
+    <link rel="stylesheet" href="../css/main-adiciona-livro.css">
     <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
@@ -30,13 +30,38 @@
             </div>
         </header>
         <main>
-            <article>
-                <h2>Sobre</h2>
-                <hr>
-                <p>Bem-vindo à <em>Enciclopédia Literária</em>, um projeto inovador desenvolvido pelos alunos do curso de <em>Análise e Desenvolvimento de Sistemas da Uniasselvi</em>. Nossa plataforma é dedicada à promoção e preservação da literatura, oferecendo uma experiência interativa e educacional para todos os amantes da leitura.</p>
-                <h3>Sobre o Projeto</h3>
-                <p>A Enciclopédia Literária é o resultado de um esforço colaborativo entre os membros da equipe: <a href="#">Gilderson</a>, <a href="#">Laelton</a>, <a href="#">Layane</a>, <a href="#">Levy</a> e <a href="#">Luciano</a>. Nosso objetivo é criar uma aplicação web que não apenas forneça informações abrangentes sobre obras literárias, mas também permita aos usuários contribuir com conteúdo de forma dinâmica.</p>
-            </article>
+            <form method="post" enctype="multipart/form-data" id="formulario" action="insertlivro.php">
+                <div class="group-inputs">
+                    <div>
+                        <label for="titulo">Título do Livro:</label>
+                        <input type="text" id="titulo" name="titulo" required autofocus>
+                    </div>
+                    <div>
+                        <label for="ano">Ano de Lançamento:</label>
+                        <input type="number" id="ano" name="ano" required>
+                    </div>
+                    <div>
+                        <label for="autor">Nome do Autor:</label>
+                        <input type="text" id="autor" name="autor" required>
+                    </div>
+                    <div>
+                        <label for="genero">Gênero:</label>
+                        <input type="text" id="genero" name="genero" required>
+                    </div>
+                    <div class="custom-file-button"> 
+                        <label for="imagem"><i class="bi bi-card-image"></i> Imagem do livro</label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*">
+                    </div>
+                </div>
+                <div class="descricao">
+                    <label for="descricao">Descrição <strong>(máx. 500 caracteres):</strong></label>
+                    <textarea id="descricao" name="descricao" rows="4" maxlength="500" ></textarea>
+                </div>
+                <button type="submit">
+                    <span class="btn-txt">Adicionar Livro</span>
+                </button>
+            </form>
+
         </main>
     </div>
     <aside>
@@ -67,7 +92,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="sobre.html" class="nav-link active">
+                    <a href="sobre.html" class="nav-link">
                         <i class="bi bi-info"></i>
                         <span>Sobre</span>
                     </a>
