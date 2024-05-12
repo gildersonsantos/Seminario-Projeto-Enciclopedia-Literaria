@@ -40,6 +40,23 @@ main button .bi-arrows-expand {
     transition: all .2s ease-in;
 }
 
+main a.add-new-libre {
+    font-weight: 500;
+    color: var(--white-color);
+    text-transform: uppercase;
+    background-color: var(--secondary-color);
+    letter-spacing: 0.0625rem;
+    font-size: 0.9rem;
+    padding: 1rem 2rem;
+    border-radius: 0.4rem;   
+    text-decoration:none; 
+}
+
+main a.add-new-libre:hover {
+    color: var(--text-color); 
+    text-decoration:none;   
+}
+
 main button.add-new-libre {
     font-weight: 500;
     color: var(--white-color);
