@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/variaveis-body.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/modal-delete.css">
     <link rel="stylesheet" href="../css/main-home.css">
     <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -95,6 +96,14 @@
             <hr>
             <div class="container-table">
                 <table>
+                    <div class="modal-delete">
+                        <p>Deseja mesmo deletar o livro <strong></strong> de <strong></strong>?</p>
+                        <hr>
+                        <div class="modal-buttons">
+                            <button class="cancel-btn"><i class="bi bi-x-lg"></i>Cancelar</button>
+                            <button class="confirm-btn"><i class="bi bi-check-lg"></i>Confirmar</button>
+                        </div>
+                    </div>
                     <thead>
                         <tr>
                             <th></th>
@@ -174,6 +183,7 @@
         </button>
     </aside>
     <script src="../js/script.js"></script>
+    <script src="../js/modal-delete.js"></script>
 </body>
 
 </html>

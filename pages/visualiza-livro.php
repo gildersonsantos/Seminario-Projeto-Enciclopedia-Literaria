@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/variaveis-body.css">
     <link rel="stylesheet" href="../css/aside.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/modal-delete.css">
     <link rel="stylesheet" href="../css/main-visualiza-livro.css">
     <link rel="stylesheet" href="../css/medias-querys.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -58,7 +59,15 @@
         </header>
         <main>
             <article>
-            <?php while($registro = $resultado->fetch_assoc()) { ?>
+                <?php while($registro = $resultado->fetch_assoc()) { ?>
+                <div class="modal-delete">
+                    <p>Deseja mesmo deletar o livro <strong><?= $registro["nome"]; ?></strong> de <strong><?= $registro["autor"]; ?></strong>?</p>
+                    <hr>
+                    <div class="modal-buttons">
+                        <button class="cancel-btn"><i class="bi bi-x-lg"></i>Cancelar</button>
+                        <button class="confirm-btn"><i class="bi bi-check-lg"></i>Confirmar</button>
+                    </div>
+                </div>
                 <figure class="libre">
                     <div class="container-img">
                         <img src="<?= $registro["imagem"]; ?>"
@@ -131,6 +140,7 @@
         </button>
     </aside>
     <script src="../js/script.js"></script>
+    <script src="../js/modal-delete-visualiza.js"></script>
 </body>
 
 </html>
