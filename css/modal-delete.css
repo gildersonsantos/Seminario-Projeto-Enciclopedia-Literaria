@@ -1,6 +1,6 @@
 .modal-delete {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -55,6 +55,7 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2px;
+  cursor: pointer;
 }
 
 .modal-buttons button i {
