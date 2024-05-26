@@ -40,7 +40,7 @@
         }
 
         // Executa a query da variável $sql
-        $sql = " SELECT * FROM tb_livros "." WHERE id_livro=".$id;
+        $sql = "SELECT * FROM tb_livros "." WHERE id_livro=".$id;
         $resultado = $conexao->query($sql);
         // Verifica se a query retornou registros
     ?>
