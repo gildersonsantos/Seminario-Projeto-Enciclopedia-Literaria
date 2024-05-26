@@ -5,6 +5,7 @@ links.forEach(link => {
     link.addEventListener("click", function(event) {
         event.preventDefault();
         const el = event.target;
+        const id = el.closest("a").id;
         const tr = el.closest("tr");
         const td = tr.querySelectorAll("td");
 
@@ -24,6 +25,7 @@ links.forEach(link => {
         })
 
         btnConfirm.addEventListener("click", () => {
+            window.location.href = `../pages/deletelivro.php?id=${id}`;
             // AQUI TENTE DIRECIONAR PARA O DELETE
         })
     });

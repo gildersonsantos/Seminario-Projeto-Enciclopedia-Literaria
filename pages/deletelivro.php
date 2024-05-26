@@ -12,10 +12,10 @@
         die("Falha na conexão: " . $conexao->connect_error);
     }
 
-    $id = $_POST["id"];
+    $id = $_GET["id"];
 
     // Executa a query da variável $sql
-    $sql = "DELETE FROM tb_livros WHERE id=".$id;
+    $sql = "DELETE FROM tb_livros WHERE id_livro=".$id;
     if (!($conexao->query($sql) === TRUE)) {
         $conexao->close();
         die("Erro: " . $sql . "<br>" . $conexao->error);

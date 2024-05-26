@@ -129,7 +129,7 @@
                                         <div class="group-buttons">
                                             <a href="visualiza-livro.php?id=<?= $registro["id_livro"]; ?>" class="view" > <i class="bi bi-eye"></i> </a>
                                             <a href="editar-livro.php?id=<?= $registro["id_livro"]; ?>" class="edit"> <i class="bi bi-pencil"></i> </a>
-                                            <a href="excluir.php?id=<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a>
+                                            <a id="<?= $registro["id_livro"]; ?>" class="delete" > <i class="bi bi-trash2"></i></a>
                                         </div>
                                     </td>
                                 </tr>
