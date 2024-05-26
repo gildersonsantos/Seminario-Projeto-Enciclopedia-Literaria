@@ -25,11 +25,11 @@ window.addEventListener('scroll', () => {
     }
 });
 
-const searchInput = document.querySelector('.form-search #search');
-const searchForm = document.querySelector('.form-search');
+// const searchInput = document.querySelector('.form-search #search');
+// const searchForm = document.querySelector('.form-search');
 
-searchInput.addEventListener("blur", () => {
-    if (!searchInput.value) {
-        searchForm.submit(); // Submete o formulário
-    }
-});
+// searchInput.addEventListener("blur", () => {
+//     if (!searchInput.value) {
+//         searchForm.submit(); // Submete o formulário
+//     }
+// });

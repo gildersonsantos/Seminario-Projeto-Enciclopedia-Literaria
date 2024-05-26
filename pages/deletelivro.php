@@ -15,12 +15,7 @@
     }
 
     $sql = "SELECT * FROM tb_livros "." WHERE id_livro=".$id;
-    // $resultado = !($conexao->query($sql) === TRUE);
-    // echo $resultado;
 
-    // echo $resultado;
-    // Executa a query da variável $sql
-    // $sql = "SELECT * FROM tb_livros WHERE id_livro=".$id;
     if (!($conexao->query($sql) == TRUE)) {
         $conexao->close();
         die("Erro: " . $sql . "<br>" . $conexao->error);

@@ -127,7 +127,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="sobre.html" class="nav-link">
                         <i class="bi bi-info"></i>
                         <span>Sobre</span>
                     </a>
@@ -140,6 +140,7 @@
         </button>
     </aside>
     <script src="../js/script.js"></script>
+    <script src="../js/search.js"></script>
     <script src="../js/modal-delete-visualiza.js"></script>
 </body>
 
